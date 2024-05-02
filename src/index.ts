@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 io.on("connection", (socket: Socket) => {
   console.log("A user connected");
@@ -24,7 +24,7 @@ io.on("connection", (socket: Socket) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "../public", "index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
